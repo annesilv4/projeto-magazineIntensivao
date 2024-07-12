@@ -103,3 +103,16 @@ export function desenharProdutoNoCarrinhoSimples(idProduto, idContainerHtml, qua
     elementoArticle.innerHTML = cartaoProdutoCarrinho;
     containerPordutosCarrinho.appendChild(elementoArticle);
 }
+
+export function atualizarPrecoCarrinhoSimples() {
+    const precoCarrinho = document.getElementById('preco-total-ckeckout');
+    let precoTotalCarrinho = 0;
+    const carrinho = lerLocalStorage('carrinho') ?? {};
+
+    for (const idProdutoNoCarrinho in carrinho) {
+        const produto = catalogo.find((p) => p.id === idProdutoNoCarrinho);
+        precoTotalCarrinho += produto.preco * carrinho[idProdutoNoCarrinho];
+    }
+
+    precoCarrinho.innerText = `Total: $${precoTotalCarrinho}`;
+}
