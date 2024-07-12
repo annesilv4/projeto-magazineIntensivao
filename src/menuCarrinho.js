@@ -1,4 +1,4 @@
-// import { document } from "postcss";
+// import { document } from "postcss"; recurso tirado por ter dado problema na página
 import { catalogo, salvarLocalStorage, lerLocalStorage } from "./utilidades";
 
 const idsProdutoCarrinhoComQuantidade = lerLocalStorage('carrinho') ?? {};
