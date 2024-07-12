@@ -1,4 +1,4 @@
-import { desenharProdutoNoCarrinhoSimples, lerLocalStorage, apagaDoLocalStorage, salvarLocalStorage } from "./src/utilidades";
+import { desenharProdutoNoCarrinhoSimples, lerLocalStorage, apagaDoLocalStorage, salvarLocalStorage, atualizarPrecoCarrinhoSimples } from "./src/utilidades";
 
 function desenharProdutosCheckout() {
     const idsProdutoCarrinhoComQuantidade = lerLocalStorage('carrinho') ?? {};
@@ -25,5 +25,7 @@ function finalizarCompra(e) {
 }
 
 desenharProdutosCheckout();
+
+atualizarPrecoCarrinhoSimples();
 
 document.addEventListener('submit', (evt) => finalizarCompra(evt));
